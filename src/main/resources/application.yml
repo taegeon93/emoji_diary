@@ -1,0 +1,15 @@
+#db설정
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/emojiDiary
+    username: emoji
+    password: emoji
+    driver-class-name: org.postgresql.Driver
+
+
+# Mybatis 설정
+mybatis:
+  type-aliases-package: com.io.emojiDiary.model
+  mapper-locations: classpath:mappers/*.xml
+  configuration:
+    map-underscore-to-camel-case: true

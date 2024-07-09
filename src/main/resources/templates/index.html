@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>emoji_diary</title>
+    <link th:href="@{/css/index.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/index.js}"></script>
+</head>
+</head>
+
+<body>
+    <main>
+        <div class="login_area">
+            <h1>Emoji Diary</h1>
+            <form action="login" method="post">
+                <input type="text" name="userId" placeholder="아이디" />
+                <input type="password" name="userPw" placeholder="비밀번호" />
+                <br>
+                <button class="login_btn" type="submit">로그인</button>
+            </form>
+            <div class="sign_up_area">
+                <hr>
+                <button class="sign_up_btn" onclick="">회원가입</button>
+            </div>
+        </div>
+    </main>
+
+
+</body>
+
+</html>
