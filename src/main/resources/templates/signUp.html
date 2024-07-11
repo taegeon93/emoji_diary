@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>emoji_diary</title>
+    <link th:href="@{/css/signUp.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/signUp.js}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <main>
+        <div class="signup_form_area">
+            <h1 class="title">회원가입</h1>
+            <form action="signup" method="post">
+                <div class="check_area">
+                    <input class="form_id" type="text" name="userId" placeholder="아이디" />
+                    <button type="button" class="signupId_btn">중복체크</button>
+                    <br />
+                    <span class="check_msg"></span>
+                </div>
+                <input class="form_input" type="password" name="userPw" placeholder="비밀번호" />
+                <input class="form_input" type="password" name="userPw2" placeholder="비밀번호 확인" />
+                <input class="form_input" type="text" name="userName" placeholder="이름" />
+                <input class="form_input" name="phone" placeholder="전화번호" />
+                <input class="form_input" type="text" name="nickName" placeholder="닉네임" />
+                <button class="signup_btn">회원가입</button>
+            </form>
+        </div>
+    </main>
+    <script>
+        $(document).ready(function () {
+            $(".signupId_btn").click(function () {
+                var data = $(".form_id").val();
+                if(data.trim()==""){
+                    alert("아이디를 입력해주세요")
+                    var data = $(".form_id").val("");
+                    return
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "/user/search",
+                    data: {data: data},
+                    success: function (response) {
+                        if (response == "ok") {
+                            $(".check_msg").css('color', 'green');
+                            $(".check_msg").html("사용 가능합니다.");
+                        } else {
+                            $(".check_msg").css('color', 'red');
+                            $(".check_msg").html("사용 불가능합니다.");
+                        }
+
+                    },
+                    fail: function () {
+                        alert("통신에 실패했습니다.");
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

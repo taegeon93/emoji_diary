@@ -1,6 +1,7 @@
 package com.io.emojiDiary.domain.member.service;
 
 
+import com.io.emojiDiary.domain.member.dto.LoginDto;
 import com.io.emojiDiary.mapper.MemberMapper;
 import com.io.emojiDiary.model.Member;
 import lombok.RequiredArgsConstructor;
@@ -14,16 +15,17 @@ public class MemberService {
 
     private final MemberMapper memberMapper;
 
-    public Member insertMember(){
-        Member m = new Member().builder()
-                .userId("testId")
-                .userPw("1234")
-                .userName("test")
-                .nickName("testNick")
-                .phone("01031058440")
-                .build();
+    public int insertMember(Member m){
 
-        memberMapper.insertMember(m);
-        return m;
+        return memberMapper.insertMember(m);
+
+    }
+
+    public Member loginMember(LoginDto loginDto) {
+        return memberMapper.loginMember(loginDto);
+    }
+
+    public long searchMember(String data) {
+        return memberMapper.searchMember(data);
     }
 }

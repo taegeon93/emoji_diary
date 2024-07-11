@@ -10,10 +10,14 @@
 </head>
 
 <body>
+    
     <main>
+        <script th:inline="javascript" th:if="${session.message != null}">
+            alert([[${session.message}]]);
+        </script>
         <div class="login_area">
             <h1>Emoji Diary</h1>
-            <form action="login" method="post">
+            <form action="user/login" method="post">
                 <input type="text" name="userId" placeholder="아이디" />
                 <input type="password" name="userPw" placeholder="비밀번호" />
                 <br>
@@ -21,7 +25,7 @@
             </form>
             <div class="sign_up_area">
                 <hr>
-                <button class="sign_up_btn" onclick="">회원가입</button>
+                <button class="sign_up_btn" onclick="signUp()">회원가입</button>
             </div>
         </div>
     </main>

@@ -9,5 +9,14 @@
         INSERT INTO member(user_id, user_pw, user_name, phone, nick_name)
         values (#{userId}, #{userPw}, #{userName},#{phone},#{nickName});
     </insert>
-
+    <select id="loginMember" resultType="Member">
+        select user_id, user_name, phone, nick_name
+        from member
+        where user_id = #{userId} and user_pw = #{userPw} and delete_yn = 'N'
+    </select>
+    <select id="searchMember" parameterType="String" resultType="long">
+        select COUNT(*)
+        from MEMBER
+        where user_id = #{userId}
+    </select>
 </mapper>

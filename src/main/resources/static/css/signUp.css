@@ -1,0 +1,48 @@
+main{
+    height: 100dvh;
+    display: flex;
+}
+.signup_form_area {
+    margin-top: 20%;
+    margin: auto;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.check_area {
+    margin: auto;
+    width: 500px;
+}
+.form_id{
+    width: 50%;
+    margin-left: 25%;
+    border-width: 0 0 1px;  
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.form_input {
+    margin: auto;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    width: 50%;
+    border-width: 0 0 1px;
+}
+.signup_btn{
+    margin: auto;
+    width: 50%;
+}
+.check_msg{
+    margin-left: 25%;
+}
